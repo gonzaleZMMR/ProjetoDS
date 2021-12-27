@@ -1,8 +1,92 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <featureModel>
+	<properties>
+		<graphics key="autolayoutconstraints" value="false"/>
+		<graphics key="legendposition" value="611,592"/>
+		<graphics key="legendautolayout" value="false"/>
+		<graphics key="showshortnames" value="false"/>
+		<graphics key="layout" value="horizontal"/>
+		<graphics key="showcollapsedconstraints" value="true"/>
+		<graphics key="legendhidden" value="false"/>
+		<graphics key="layoutalgorithm" value="1"/>
+	</properties>
 	<struct>
-		<and abstract="true" mandatory="true" name="ProjetoDS">
-			<feature name="Base"/>
+		<and abstract="true" mandatory="true" name="ProductLine">
+			<graphics key="collapsed" value="false"/>
+			<and abstract="true" mandatory="true" name="Utilizadores">
+				<alt abstract="true" mandatory="true" name="Linguagem">
+					<feature name="Portugues"/>
+					<feature name="Ingles"/>
+				</alt>
+				<feature name="Cego"/>
+			</and>
+			<and abstract="true" mandatory="true" name="Funcionalidades">
+				<alt abstract="true" mandatory="true" name="Mensagem">
+					<feature name="Whatsapp"/>
+					<feature name="SMS"/>
+				</alt>
+				<feature mandatory="true" name="Calendario"/>
+				<feature name="PeriodoLuzesAutomaticas"/>
+				<feature name="PeriodoAlertaMovimento"/>
+				<feature name="PeriodoPortaAberta"/>
+				<feature name="TempoMaxPortaAberta"/>
+				<feature name="PedidoAjuda"/>
+			</and>
+			<and abstract="true" mandatory="true" name="Dispositivos">
+				<and mandatory="true" name="Computador">
+					<feature name="Microfone"/>
+					<feature mandatory="true" name="Colunas"/>
+				</and>
+				<feature name="DetetorMovimento"/>
+				<feature name="Botao"/>
+				<feature name="LampadaInteligente"/>
+				<feature name="CampainhaPorta"/>
+				<feature name="DetetorAberturaPorta"/>
+			</and>
 		</and>
 	</struct>
+	<constraints>
+		<rule>
+			<imp>
+				<var>Cego</var>
+				<var>Microfone</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>PeriodoLuzesAutomaticas</var>
+				<conj>
+					<var>LampadaInteligente</var>
+					<var>DetetorMovimento</var>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>PeriodoAlertaMovimento</var>
+				<var>DetetorMovimento</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>PeriodoPortaAberta</var>
+				<conj>
+					<var>DetetorAberturaPorta</var>
+					<var>CampainhaPorta</var>
+				</conj>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>TempoMaxPortaAberta</var>
+				<var>DetetorAberturaPorta</var>
+			</imp>
+		</rule>
+		<rule>
+			<imp>
+				<var>PedidoAjuda</var>
+				<var>Botao</var>
+			</imp>
+		</rule>
+	</constraints>
 </featureModel>
