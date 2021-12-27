@@ -2,7 +2,7 @@ package core;
 
 import java.time.LocalDateTime;
 
-public class CallendarClass {
+public class CallendarEvent {
 	
 	private String callendarMessage;
 	
@@ -12,7 +12,7 @@ public class CallendarClass {
 	
 	private int repeatRate;
 
-	public CallendarClass(String callendarMessage, LocalDateTime startDate, LocalDateTime endDate, int repeatRate) {
+	public CallendarEvent(String callendarMessage, LocalDateTime startDate, LocalDateTime endDate, int repeatRate) {
 		super();
 		this.callendarMessage = callendarMessage;
 		this.startDate = startDate;
