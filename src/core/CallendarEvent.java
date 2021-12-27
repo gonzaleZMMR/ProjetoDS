@@ -2,7 +2,7 @@ package core;
 
 import java.time.LocalDateTime;
 
-public class CallendarEvent {
+public class CallendarEvent implements CallendarEventInterface {
 	
 	private String callendarMessage;
 	
@@ -11,13 +11,19 @@ public class CallendarEvent {
 	private LocalDateTime endDate;
 	
 	private int repeatRate;
+	
+	private int timeBeforeAlert;
+	
+	public CallendarEvent() {
+	}
 
-	public CallendarEvent(String callendarMessage, LocalDateTime startDate, LocalDateTime endDate, int repeatRate) {
-		super();
+	public CallendarEvent(String callendarMessage, LocalDateTime startDate, LocalDateTime endDate, int repeatRate,
+			int timeBeforeAlert) {
 		this.callendarMessage = callendarMessage;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.repeatRate = repeatRate;
+		this.timeBeforeAlert = timeBeforeAlert;
 	}
 
 	public String getCallendarMessage() {
@@ -50,6 +56,14 @@ public class CallendarEvent {
 
 	public void setRepeatRate(int repeatRate) {
 		this.repeatRate = repeatRate;
+	}
+
+	public int getTimeBeforeAlert() {
+		return timeBeforeAlert;
+	}
+
+	public void setTimeBeforeAlert(int timeBeforeAlert) {
+		this.timeBeforeAlert = timeBeforeAlert;
 	}
 	
 }
