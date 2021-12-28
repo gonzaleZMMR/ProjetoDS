@@ -2,6 +2,8 @@ import java.time.LocalDateTime;
 
 public class CallendarEvent{
 	
+	private int id;
+	
 	private String callendarMessage;
 	
 	private LocalDateTime startDate;
@@ -22,6 +24,14 @@ public class CallendarEvent{
 		this.endDate = endDate;
 		this.repeatRate = repeatRate;
 		this.timeBeforeAlert = timeBeforeAlert;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getCallendarMessage() {

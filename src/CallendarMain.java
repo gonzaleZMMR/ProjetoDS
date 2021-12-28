@@ -1,7 +1,7 @@
 import java.io.IOException;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class CallendarMain {
@@ -38,7 +38,17 @@ public class CallendarMain {
 		System.out.println("Insira a hora de inicio do evento:");
 		int hour = bucky.nextInt();
 		
-		String dateString = day + "-" + month + "-" + year + " " + hour + ":00";
+		LocalDateTime dateTime = LocalDateTime.of(year,month,day,hour,0);
+		
+		/*
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+		String formattedDateTime = dateTime.format(formatter);
+
+		System.out.println("Data inicial do evento: " + formattedDateTime);
+		*/
+		
+		//Defines the start date of the event
+		ce.setStartDate(dateTime);
 		
 		System.out.println("Insira o dia do fim do evento:");
 		day = bucky.nextInt();
@@ -46,6 +56,19 @@ public class CallendarMain {
 		month = bucky.nextInt();
 		System.out.println("Insira o ano do fim do evento:");
 		year = bucky.nextInt();
+		
+		dateTime = LocalDateTime.of(year,month,day,hour,0);
+		
+		ce.setEndDate(dateTime);
+		
+		System.out.println("Defina a periodicidade do evento:");
+		
+		int periodicity = bucky.nextInt();
+		
+		ce.setRepeatRate(periodicity);
+		
+		
+		
 	}
 
 }
