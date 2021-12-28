@@ -1,8 +1,13 @@
+import static i18n.Messages.INSERT_TITLE;
+
 import java.io.IOException;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
+
+import i18n.I18N;
+import i18n.Messages;
 
 public class CallendarMain {
 
@@ -24,7 +29,7 @@ public class CallendarMain {
 		CallendarEvent ce = new CallendarEvent();
 		//Creating scanner for data acceptance
 		Scanner bucky = new Scanner(System.in );
-		System.out.println("Insira o titulo do evento:");
+		System.out.println(I18N.getString(Messages.INSERT_TITLE));
 		String eventTitle = bucky.next();
 		//Defines the callendar start message
 		ce.setCallendarMessage(eventTitle);
@@ -46,7 +51,6 @@ public class CallendarMain {
 
 		System.out.println("Data inicial do evento: " + formattedDateTime);
 		*/
-		
 		//Defines the start date of the event
 		ce.setStartDate(dateTime);
 		
@@ -66,9 +70,7 @@ public class CallendarMain {
 		int periodicity = bucky.nextInt();
 		
 		ce.setRepeatRate(periodicity);
-		
-		
-		
+				
 	}
 
 }
