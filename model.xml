@@ -15,7 +15,7 @@
 			<graphics key="collapsed" value="false"/>
 			<and abstract="true" mandatory="true" name="Utilizadores">
 				<alt abstract="true" mandatory="true" name="Linguagem">
-					<feature name="Portugues"/>
+					<feature name="Portuguess"/>
 					<feature name="Ingles"/>
 				</alt>
 				<feature name="Cego"/>

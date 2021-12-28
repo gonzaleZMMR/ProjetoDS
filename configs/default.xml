@@ -3,8 +3,8 @@
 	<feature automatic="selected" name="ProductLine"/>
 	<feature automatic="selected" name="Utilizadores"/>
 	<feature automatic="selected" name="Linguagem"/>
-	<feature manual="selected" name="Portugues"/>
-	<feature automatic="unselected" name="Ingles"/>
+	<feature automatic="unselected" name="Portuguess"/>
+	<feature manual="selected" name="Ingles"/>
 	<feature name="Cego"/>
 	<feature automatic="selected" name="Funcionalidades"/>
 	<feature automatic="selected" name="Mensagem"/>
