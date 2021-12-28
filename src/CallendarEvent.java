@@ -1,8 +1,6 @@
-package core;
-
 import java.time.LocalDateTime;
 
-public class CallendarEvent implements CallendarEventInterface {
+public class CallendarEvent{
 	
 	private String callendarMessage;
 	
@@ -67,15 +65,9 @@ public class CallendarEvent implements CallendarEventInterface {
 	}
 
 	@Override
-	public boolean isDateValid(LocalDateTime date) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isEventValid(CallendarEvent cEvent) {
-		// TODO Auto-generated method stub
-		return false;
+	public String toString() {
+		return "CallendarEvent [callendarMessage=" + callendarMessage + ", startDate=" + startDate + ", endDate="
+				+ endDate + ", repeatRate=" + repeatRate + ", timeBeforeAlert=" + timeBeforeAlert + "]";
 	}
 	
 }

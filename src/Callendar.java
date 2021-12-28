@@ -1,8 +1,6 @@
-package core;
-
 import java.util.List;
 
-public class Callendar implements CallendarInterface {
+public class Callendar{
 	
 	//List of events
 	public List<CallendarEvent> listOfEvents;
@@ -17,17 +15,6 @@ public class Callendar implements CallendarInterface {
 
 	public void setListOfEvents(List<CallendarEvent> listOfEvents) {
 		this.listOfEvents = listOfEvents;
-	}
-
-	@Override
-	public String createEvent(CallendarEvent cEvent) {
-		return null;
-	}
-
-	@Override
-	public String deleteEvent(CallendarEvent cEvent) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 	
 }

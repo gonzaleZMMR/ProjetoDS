@@ -1,6 +1,4 @@
-package core;
 
-import java.time.LocalDateTime;
 
 public interface CallendarInterface {
 	//Creation of the event
