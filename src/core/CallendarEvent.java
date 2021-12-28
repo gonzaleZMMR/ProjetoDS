@@ -65,5 +65,17 @@ public class CallendarEvent implements CallendarEventInterface {
 	public void setTimeBeforeAlert(int timeBeforeAlert) {
 		this.timeBeforeAlert = timeBeforeAlert;
 	}
+
+	@Override
+	public boolean isDateValid(LocalDateTime date) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean isEventValid(CallendarEvent cEvent) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }

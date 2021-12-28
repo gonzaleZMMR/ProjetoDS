@@ -10,13 +10,11 @@ public class Main {
 		//System.out.println("MEGALUL");
 		EventsHandler eh = new EventsHandler();
 		//eh.createFile();
-		eh.writeToFile("hahaha");
-		eh.writeToFile("hehehe");
-		eh.writeToFile("hihihi");
-		eh.writeToFile("hohoho");
-		eh.writeToFile("huhuhu");
+		eh.writeToFile("evento1");
+		eh.writeToFile("evento2");
+		eh.writeToFile("evento3");
 		eh.listEvents();
-		System.out.println(eh.getFileSize());
+		System.out.println("Number of events:" +  eh.getFileSize());
 	}
 
 }
