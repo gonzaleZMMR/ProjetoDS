@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<configuration>
+	<feature automatic="selected" name="ProductLine"/>
+	<feature automatic="selected" name="Utilizadores"/>
+	<feature automatic="selected" name="Linguagem"/>
+	<feature manual="selected" name="Portugues"/>
+	<feature automatic="unselected" name="Ingles"/>
+	<feature name="Cego"/>
+	<feature automatic="selected" name="Funcionalidades"/>
+	<feature automatic="selected" name="Mensagem"/>
+	<feature automatic="unselected" name="Whatsapp"/>
+	<feature manual="selected" name="SMS"/>
+	<feature automatic="selected" name="Calendario"/>
+	<feature manual="selected" name="PeriodoLuzesAutomaticas"/>
+	<feature name="PeriodoAlertaMovimento"/>
+	<feature manual="selected" name="PeriodoPortaAberta"/>
+	<feature manual="selected" name="TempoMaxPortaAberta"/>
+	<feature manual="selected" name="PedidoAjuda"/>
+	<feature automatic="selected" name="Dispositivos"/>
+	<feature automatic="selected" name="Computador"/>
+	<feature name="Microfone"/>
+	<feature automatic="selected" name="Colunas"/>
+	<feature automatic="selected" manual="selected" name="DetetorMovimento"/>
+	<feature automatic="selected" name="Botao"/>
+	<feature automatic="selected" name="LampadaInteligente"/>
+	<feature automatic="selected" name="CampainhaPorta"/>
+	<feature automatic="selected" name="DetetorAberturaPorta"/>
+</configuration>

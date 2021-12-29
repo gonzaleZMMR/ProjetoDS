@@ -23,11 +23,7 @@ public class MovementDetector extends Sensor {
         //sends the event
         bezirk.sendEvent(MovementDetectorUpdateEvent);
         
-        System.err.println("Published Movement Detector update: " + MovementDetectorUpdateEvent.toString());
+        //System.err.println("Published Movement Detector update: " + MovementDetectorUpdateEvent.toString());
     }
-	
-	public static void main(String args[]) throws InterruptedException {
-		MovementDetector MovementDetectorSensorZirk = new MovementDetector(); 
-		MovementDetectorSensorZirk.sendMovementDetectorUpdate();
-	 }
+
 }

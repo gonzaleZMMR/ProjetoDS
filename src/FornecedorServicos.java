@@ -74,10 +74,6 @@ public class FornecedorServicos {
                         MensagemExterior mensagem = new MensagemExterior("Foi Detetado Movimento ", "913651651");
                 		mensagem.sendMessage();
                 		
-                		if(luzesAutomaticas) {
-                			InteligentLamp BellDetectorSensorZirk = new InteligentLamp(); 
-                			BellDetectorSensorZirk.sendMovementDetectorUpdate();
-                		}
                     }                      
                 }
             }

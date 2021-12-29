@@ -49,4 +49,10 @@ public class InteligentLamp extends Sensor {
 	public long getStartTime() {
 		return startTime;
 	}
+	
+	public static void main(String args[]) throws InterruptedException {
+
+		InteligentLamp il = new InteligentLamp(); 
+		il.sendMovementDetectorUpdate();
+	 }
 }
