@@ -9,6 +9,8 @@ public class Sensor {
 		this.actualState = actualState;
 	}
 	
+	public Sensor() {}
+	
 	
 	public void changeState() {
 		

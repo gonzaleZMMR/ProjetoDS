@@ -34,6 +34,6 @@ public class UpdateEvent extends Event {
 		this.sensorName = sensorName;
 	}
 	
-	public String toString() {return String.format("name: %s, actualState: %s, pollenLevel: %s", sensorName,actualState);}
+	public String toString() {return String.format("name:" + sensorName +" , " + "actualState:"+actualState);}
 
 }

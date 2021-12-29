@@ -5,12 +5,12 @@ public class InteligentButton extends Sensor {
 
 	 private Bezirk bezirk;
 	
-	public InteligentButton(String name, Boolean actualState) {
-		super(name,actualState);
-		 BezirkMiddleware.initialize();
-		 bezirk = BezirkMiddleware.registerZirk("Inteligent Button");
+	public InteligentButton() {
+		super();
+		BezirkMiddleware.initialize();
+		bezirk = BezirkMiddleware.registerZirk("Inteligent Button");
 	}
-	
+
 	public void sendInteligentButtonUpdate() {
     	//produces some  values since this is a mock
         final Boolean newState = true;
@@ -19,5 +19,7 @@ public class InteligentButton extends Sensor {
         
         //sends the event
         bezirk.sendEvent(InteligentButtonUpdateEvent);
+        
+        System.err.println("Published Inteligent Button update: " + InteligentButtonUpdateEvent.toString());
     }
 }
