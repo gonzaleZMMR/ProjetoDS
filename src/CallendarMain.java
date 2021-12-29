@@ -37,5 +37,3 @@ public class CallendarMain{
 		} while(!menu.isValid(value));
 		return value;
 	}
-
-}
