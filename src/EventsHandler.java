@@ -1,40 +1,61 @@
-
-
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class EventsHandler {
 
-	public void createFile() {
+	File events,temporary;
+	BufferedReader reader;
+	BufferedWriter writer;
+	FileWriter eventsToWrite;
+
+	public void createFiles() {
 
 		try {
-			File events = new File("events/events.txt");
-			if (events.createNewFile()) {
+			events = new File("events/events.txt");
+			temporary = new File("events/temporary.txt");
+			
+			if (!events.exists() && !temporary.exists()) {
+				events.createNewFile();
+				temporary.createNewFile();
 				System.out.println("File created: " + events.getName());
-			} else {
-				System.out.println("File already exists.");
+				System.out.println("File created: " + temporary.getName());
+			} 
+			else if(events.exists() && !temporary.exists()){
+				temporary.createNewFile();
+				System.out.println("File Events already exists.");
+				System.out.println("File created: " + temporary.getName());
 			}
+			else if(!events.exists() && temporary.exists()){
+				System.out.println("File Temporary already exists.");
+				events.createNewFile();
+				System.out.println("File created: " + events.getName());
+			}
+			
+			else {System.out.println("Both files already created!");}
+			
 		} catch (IOException e) {
 			System.err.println("An error occurred.");
 			e.printStackTrace();
 		}
 	}
 
-	public void writeToFile(String text) throws IOException {
+	public void writeEvent(String text) throws IOException {
 
-			int lastIndex = numberOfEvents();
-			
+		int lastIndex = AssignNumberTOfEvents();
+
 		try {
-			FileWriter events = new FileWriter("events/events.txt",true);
-			events.write(lastIndex+" "+text+"\n");
-			events.close();
+			eventsToWrite = new FileWriter("events/events.txt",true);
+			eventsToWrite.write(lastIndex+" "+text+"\n");
+			eventsToWrite.close();
 			System.out.println("Successfully wrote to the file.");
-			//setline_counter(line_counter++);
 		} catch (IOException e) {
 			System.err.println("An error occurred.");
 			e.printStackTrace();
@@ -45,8 +66,9 @@ public class EventsHandler {
 	public void listEvents() {
 
 		try {
-			File eventsToRead = new File("events/events.txt");
-			Scanner reader = new java.util.Scanner(eventsToRead);
+			//File eventsToRead = new File("events/events.txt");
+			//Scanner reader = new java.util.Scanner(eventsToRead);
+			Scanner reader = new java.util.Scanner(events);
 			while(reader.hasNextLine()) {
 				System.out.println("Read from file "+reader.nextLine());
 			}
@@ -58,22 +80,37 @@ public class EventsHandler {
 		}
 	}
 
-	public int numberOfEvents() throws IOException {
+	public int AssignNumberTOfEvents() throws IOException {
 
 		int counter =1;
 
-		BufferedReader reader = new BufferedReader(new FileReader("events/events.txt"));
+		reader = new BufferedReader(new FileReader("events/events.txt"));
 
 		while (reader.readLine() != null) counter++;
 		reader.close();
 		return counter;
 
 	}
-	
-	public int getFileSize() throws IOException {
-		
-		int size = numberOfEvents()-1;
-		
+
+	public void deleteEvent(int index) throws IOException {
+
+		reader = new BufferedReader(new FileReader("events/events.txt"));
+		writer = new BufferedWriter(new FileWriter("events/temporary.txt"));
+		String EventToDelete = Files.readAllLines(Paths.get("events/events.txt")).get(index);
+		String currentLine;
+		while ((currentLine = reader.readLine()) != null) {
+
+			if(currentLine.equals(EventToDelete)) continue;
+
+			writer.write(currentLine);
+		}
+
+		reader.close();
+	}
+
+	public int NumberOfEvents() throws IOException {
+
+		int size = AssignNumberTOfEvents()-1;
 		return size;
 	}
 }

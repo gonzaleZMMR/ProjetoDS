@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class CallendarEvent{
+public class CallendarEvent implements Serializable{
 	
 	private int id;
 	
