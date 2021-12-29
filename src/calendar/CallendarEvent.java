@@ -1,3 +1,4 @@
+package calendar;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -14,6 +15,8 @@ public class CallendarEvent implements Serializable{
 	private int repeatRate;
 	
 	private int timeBeforeAlert;
+	
+	private String phoneNumber;
 	
 	public CallendarEvent() {
 	}
@@ -84,6 +87,14 @@ public class CallendarEvent implements Serializable{
 
 	public void setTimeBeforeAlert(int timeBeforeAlert) {
 		this.timeBeforeAlert = timeBeforeAlert;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	@Override
