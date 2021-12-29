@@ -36,6 +36,8 @@
 /MensagemExterior$1.class
 /MensagemExterior.class
 /MensagemMain.class
+<<<<<<< HEAD
+=======
 /TipoMensagem.class
 /AirQualitySensorZirk$1.class
 /BellDetector.class
@@ -47,3 +49,4 @@
 /Sensor.class
 /Snippet.class
 /UpdateEvent.class
+>>>>>>> main
