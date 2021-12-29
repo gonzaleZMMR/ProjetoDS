@@ -19,13 +19,27 @@ public class EventsHandler {
 	public void createFiles() {
 
 		try {
-			
 			events = new File("events/events.txt");
+			temporary = new File("events/temporary.txt");
 			
-			if (events.createNewFile()) {
+			if (!events.exists() && !temporary.exists()) {
+				events.createNewFile();
+				temporary.createNewFile();
 				System.out.println("File created: " + events.getName());
+				System.out.println("File created: " + temporary.getName());
 			} 
-			else {System.out.println("File already created!");}
+			else if(events.exists() && !temporary.exists()){
+				temporary.createNewFile();
+				System.out.println("File Events already exists.");
+				System.out.println("File created: " + temporary.getName());
+			}
+			else if(!events.exists() && temporary.exists()){
+				System.out.println("File Temporary already exists.");
+				events.createNewFile();
+				System.out.println("File created: " + events.getName());
+			}
+			
+			else {System.out.println("Both files already created!");}
 			
 		} catch (IOException e) {
 			System.err.println("An error occurred.");
@@ -34,13 +48,14 @@ public class EventsHandler {
 	}
 
 	public void writeEvent(String text) throws IOException {
-		
-		int lastIndex = eventIdChecker();
+
+		int lastIndex = AssignNumberTOfEvents();
 
 		try {
 			eventsToWrite = new FileWriter("events/events.txt",true);
 			eventsToWrite.write(lastIndex+" "+text+"\n");
 			eventsToWrite.close();
+			System.out.println("Successfully wrote to the file.");
 		} catch (IOException e) {
 			System.err.println("An error occurred.");
 			e.printStackTrace();
@@ -51,9 +66,11 @@ public class EventsHandler {
 	public void listEvents() {
 
 		try {
+			//File eventsToRead = new File("events/events.txt");
+			//Scanner reader = new java.util.Scanner(eventsToRead);
 			Scanner reader = new java.util.Scanner(events);
 			while(reader.hasNextLine()) {
-				System.out.println(reader.nextLine());
+				System.out.println("Read from file "+reader.nextLine());
 			}
 
 			reader.close();
@@ -63,7 +80,7 @@ public class EventsHandler {
 		}
 	}
 
-	public int eventIdChecker() throws IOException {
+	public int AssignNumberTOfEvents() throws IOException {
 
 		int counter =1;
 
@@ -76,12 +93,7 @@ public class EventsHandler {
 	}
 
 	public void deleteEvent(int index) throws IOException {
-		
-		index--;
-		if(index <= 0) {System.err.println("Wrong Event number provided!");System.exit(1);}
 
-		temporary = new File("events/temporary.txt");
-		temporary.createNewFile();
 		reader = new BufferedReader(new FileReader("events/events.txt"));
 		writer = new BufferedWriter(new FileWriter("events/temporary.txt"));
 		String EventToDelete = Files.readAllLines(Paths.get("events/events.txt")).get(index);
@@ -89,19 +101,16 @@ public class EventsHandler {
 		while ((currentLine = reader.readLine()) != null) {
 
 			if(currentLine.equals(EventToDelete)) continue;
-			
-			System.out.println(currentLine);
-			writer.write(currentLine+"\n");
+
+			writer.write(currentLine);
 		}
-		writer.close();
+
 		reader.close();
-		events.delete();
-		temporary.renameTo(events);
 	}
 
 	public int NumberOfEvents() throws IOException {
 
-		int size = eventIdChecker()-1;
+		int size = AssignNumberTOfEvents()-1;
 		return size;
 	}
 }
