@@ -8,8 +8,8 @@
 	<feature name="Cego"/>
 	<feature automatic="selected" name="Funcionalidades"/>
 	<feature automatic="selected" name="Mensagem"/>
-	<feature manual="selected" name="Whatsapp"/>
-	<feature automatic="unselected" name="SMS"/>
+	<feature automatic="unselected" name="Whatsapp"/>
+	<feature manual="selected" name="SMS"/>
 	<feature automatic="selected" name="Calendario"/>
 	<feature name="PeriodoLuzesAutomaticas"/>
 	<feature name="PeriodoAlertaMovimento"/>

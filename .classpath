@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="DetetorAberturaPorta.aj|Botao.aj|DetetorMovimento.aj|Portugues.aj|CampainhaPorta.aj|LampadaInteligente.aj|TempoMaxPortaAberta.aj|PeriodoLuzesAutomaticas.aj|PedidoAjuda.aj|PeriodoAlertaMovimento.aj|Microfone.aj|PeriodoPortaAberta.aj|Cego.aj|SMS.aj" kind="src" path="src"/>
+	<classpathentry excluding="DetetorAberturaPorta.aj|Botao.aj|DetetorMovimento.aj|Portugues.aj|CampainhaPorta.aj|LampadaInteligente.aj|Whatsapp.aj|TempoMaxPortaAberta.aj|PeriodoLuzesAutomaticas.aj|PedidoAjuda.aj|PeriodoAlertaMovimento.aj|Microfone.aj|PeriodoPortaAberta.aj|Cego.aj" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.ajdt.core.ASPECTJRT_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
