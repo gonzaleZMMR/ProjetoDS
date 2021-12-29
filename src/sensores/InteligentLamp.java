@@ -1,3 +1,4 @@
+package sensores;
 
 public class InteligentLamp extends Sensor {
 	

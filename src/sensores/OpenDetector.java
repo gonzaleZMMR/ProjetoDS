@@ -1,3 +1,4 @@
+package sensores;
 
 public class OpenDetector extends Sensor{
 

@@ -1,3 +1,4 @@
+package sensores;
 
 public class MovementDetector extends Sensor {
 

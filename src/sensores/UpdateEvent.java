@@ -1,3 +1,4 @@
+package sensores;
 
 import com.bezirk.middleware.messages.Event;
 
