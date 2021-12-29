@@ -32,12 +32,4 @@
 /Messages_en_US.properties
 /Messages_pt_PT.properties
 /Portuguess.class
-/Sensor.class
-/BotaoInteligente.class
-/DetetorAbertura.class
-/InteligentButton.class
-/InteligentLamp.class
-/MovementDetector.class
-/OpenDetector.class
-/BellDetector.class
-/UpdateEvent.class
+
