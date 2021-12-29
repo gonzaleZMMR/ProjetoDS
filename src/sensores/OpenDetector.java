@@ -6,6 +6,8 @@ import UpdateEvents.UpdateEventOpenDetector;
 public class OpenDetector extends Sensor{
 	
 	private Bezirk bezirk;
+	
+	long startTime;
 
 	public OpenDetector() {
 		super();
@@ -21,6 +23,11 @@ public class OpenDetector extends Sensor{
         
         //sends the event
         bezirk.sendEvent(OpenDetectorUpdateEvent);
+        startTime = System.currentTimeMillis();
+        
+        while(System.currentTimeMillis() - startTime < 10000) {
+        	continue;
+        }
         
         System.err.println("Published Open Detector update: " + OpenDetectorUpdateEvent.toString());
     }
