@@ -23,4 +23,11 @@ public class InteligentButton extends Sensor {
         
         System.err.println("Published Inteligent Button update: " + InteligentButtonUpdateEvent.toString());
     }
+	
+	public static void main(String args[]) throws InterruptedException {
+
+		InteligentButton InteligentButtonSensorZirk = new InteligentButton(); 
+		InteligentButtonSensorZirk.sendInteligentButtonUpdate();
+	 }
+	
 }
