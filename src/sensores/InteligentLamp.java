@@ -43,4 +43,10 @@ public class InteligentLamp extends Sensor {
 	public long getStartTime() {
 		return startTime;
 	}
+	
+	public static void main(String args[]) throws InterruptedException {
+		
+		InteligentLamp BellDetectorSensorZirk = new InteligentLamp(); 
+		BellDetectorSensorZirk.sendMovementDetectorUpdate();
+	 }
 }

@@ -27,7 +27,6 @@ public class MovementDetector extends Sensor {
     }
 	
 	public static void main(String args[]) throws InterruptedException {
-
 		MovementDetector MovementDetectorSensorZirk = new MovementDetector(); 
 		MovementDetectorSensorZirk.sendMovementDetectorUpdate();
 	 }
