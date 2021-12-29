@@ -1,6 +1,7 @@
 package sensores;
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
+import UpdateEvents.UpdateEventOpenDetector;
 
 public class OpenDetector extends Sensor{
 	
@@ -16,7 +17,7 @@ public class OpenDetector extends Sensor{
     	//produces some  values since this is a mock
         final Boolean newState = true;
         final String newName = "Open Detector";
-        final UpdateEvent OpenDetectorUpdateEvent = new UpdateEvent(newName,newState);
+        final UpdateEventOpenDetector OpenDetectorUpdateEvent = new UpdateEventOpenDetector(newName,newState);
         
         //sends the event
         bezirk.sendEvent(OpenDetectorUpdateEvent);

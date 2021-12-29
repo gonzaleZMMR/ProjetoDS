@@ -2,6 +2,8 @@ package sensores;
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
+import UpdateEvents.UpdateEventButton;
+
 public class InteligentButton extends Sensor {
 
 	 private Bezirk bezirk;
@@ -16,7 +18,7 @@ public class InteligentButton extends Sensor {
     	//produces some  values since this is a mock
         final Boolean newState = true;
         final String newName = "Inteligent Button";
-        final UpdateEvent InteligentButtonUpdateEvent = new UpdateEvent(newName,newState);
+        final UpdateEventButton InteligentButtonUpdateEvent = new UpdateEventButton(newName,newState);
         
         //sends the event
         bezirk.sendEvent(InteligentButtonUpdateEvent);

@@ -1,8 +1,8 @@
-package sensores;
+package UpdateEvents;
 
 import com.bezirk.middleware.messages.Event;
 
-public class UpdateEvent extends Event {
+public class UpdateEventInteligentLamp extends Event {
 	
 	
 	private static final long serialVersionUID = 1L;
@@ -10,7 +10,7 @@ public class UpdateEvent extends Event {
 	private String sensorName;
 	
 	
-	public UpdateEvent(String sensorName, Boolean actualState) {
+	public UpdateEventInteligentLamp(String sensorName, Boolean actualState) {
 		this.sensorName = sensorName;
 		this.actualState = actualState;
 	}
