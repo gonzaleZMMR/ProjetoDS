@@ -18,6 +18,17 @@ public class CallendarEvent implements Serializable{
 	public CallendarEvent() {
 	}
 
+	public CallendarEvent(int id, String callendarMessage, LocalDateTime startDate, LocalDateTime endDate,
+			int repeatRate, int timeBeforeAlert) {
+		super();
+		this.id = id;
+		this.callendarMessage = callendarMessage;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.repeatRate = repeatRate;
+		this.timeBeforeAlert = timeBeforeAlert;
+	}
+
 	public CallendarEvent(String callendarMessage, LocalDateTime startDate, LocalDateTime endDate, int repeatRate,
 			int timeBeforeAlert) {
 		this.callendarMessage = callendarMessage;

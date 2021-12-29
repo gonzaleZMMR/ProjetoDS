@@ -58,4 +58,21 @@ public class Calendar implements Serializable{
 		
 	}
 	
+	public void removeFromCalendar(ArrayList<CallendarEvent> listOfEvents, CallendarEvent ce) throws Exception {
+		//Loads the events to the calendar
+		listOfEvents = loadToCalendar();
+		//
+		listOfEvents.remove(ce);
+		//New file and object output streams
+		FileOutputStream fout = new FileOutputStream("events/events.ser");
+		ObjectOutputStream oos = new ObjectOutputStream(fout);
+				
+		//Write into file
+		oos.writeObject(listOfEvents);
+
+		//Close object and file output stream
+		oos.close();
+		fout.close();
+	}
+	
 }
