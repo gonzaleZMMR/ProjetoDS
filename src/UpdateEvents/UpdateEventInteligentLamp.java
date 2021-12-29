@@ -1,5 +1,7 @@
 package UpdateEvents;
 
+import java.time.LocalDateTime;
+
 import com.bezirk.middleware.messages.Event;
 
 public class UpdateEventInteligentLamp extends Event {
@@ -8,11 +10,14 @@ public class UpdateEventInteligentLamp extends Event {
 	private static final long serialVersionUID = 1L;
 	private Boolean actualState = true;
 	private String sensorName;
+	LocalDateTime initialDateTime,endDateTime;
 	
 	
-	public UpdateEventInteligentLamp(String sensorName, Boolean actualState) {
+	public UpdateEventInteligentLamp(String sensorName, Boolean actualState,LocalDateTime initialDateTime,LocalDateTime endDateTime) {
 		this.sensorName = sensorName;
 		this.actualState = actualState;
+		this.initialDateTime = initialDateTime;
+		this.endDateTime = endDateTime;
 	}
 
 
