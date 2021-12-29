@@ -23,4 +23,10 @@ public class OpenDetector extends Sensor{
         
         System.err.println("Published Open Detector update: " + OpenDetectorUpdateEvent.toString());
     }
+	
+	public static void main(String args[]) throws InterruptedException {
+
+		OpenDetector OpenDetectorSensorZirk = new OpenDetector(); 
+		OpenDetectorSensorZirk.sendOpenDetectorUpdate();
+	 }
 }

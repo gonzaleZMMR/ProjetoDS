@@ -26,4 +26,10 @@ public class BellDetector extends Sensor {
         
         System.err.println("Published Bell Detector update: " + BellDetectorUpdateEvent.toString());
     }
+	
+	public static void main(String args[]) throws InterruptedException {
+
+		BellDetector BellDetectorSensorZirk = new BellDetector(); 
+		BellDetectorSensorZirk.sendBellDetectorUpdate();
+	 }
 }
