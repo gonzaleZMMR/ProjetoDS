@@ -3,7 +3,7 @@ package sensores;
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 
-import i18n.I18N;
+import UpdateEvents.UpdateEventBellDetector;
 
 public class BellDetector extends Sensor {
 	
@@ -19,7 +19,7 @@ public class BellDetector extends Sensor {
     	//produces some  values since this is a mock
         final Boolean newState = true;
         final String newName = "Bell Detetctor";
-        final UpdateEvent BellDetectorUpdateEvent = new UpdateEvent(newName,newState);
+        final UpdateEventBellDetector BellDetectorUpdateEvent = new UpdateEventBellDetector(newName,newState);
         
         //sends the event
         bezirk.sendEvent(BellDetectorUpdateEvent);

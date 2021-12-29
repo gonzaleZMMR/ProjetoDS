@@ -2,6 +2,7 @@ package sensores;
 
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
+import UpdateEvents.UpdateEventMovementDetector;
 
 public class MovementDetector extends Sensor {
 	
@@ -17,7 +18,7 @@ public class MovementDetector extends Sensor {
     	//produces some  values since this is a mock
         final Boolean newState = true;
         final String newName = "Movement Detector";
-        final UpdateEvent MovementDetectorUpdateEvent = new UpdateEvent(newName,newState);
+        final UpdateEventMovementDetector MovementDetectorUpdateEvent = new UpdateEventMovementDetector(newName,newState);
         
         //sends the event
         bezirk.sendEvent(MovementDetectorUpdateEvent);
