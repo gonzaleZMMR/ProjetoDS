@@ -28,7 +28,7 @@ public class CallendarServico{
 				// - quanto tempo antes quero que a mensagem seja mandada
 				if(now.compareTo(initialTime) == 0) {
 					MensagemExterior me = new MensagemExterior(callendarEvent.getCallendarMessage(), callendarEvent.getPhoneNumber());
-					me.sendPeriodiclyMessageToEvent(callendarEvent);
+					me.sendMessage();
 				}
 			}
 		}  

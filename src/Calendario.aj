@@ -10,10 +10,5 @@ public aspect Calendario {
 		//Add a new event to the calendar
 		Option add = new Option(I18N.getString(Messages.ADICIONAR_EVENTO));
 		menu.addMenuItem(add, new Action("add"));
-		/*
-		//Delete an event from the calendar
-		Option delete = new Option("Apagar evento do calendário");
-		menu.addMenuItem(delete, new Action("delete"));
-		*/
 	}
 }
