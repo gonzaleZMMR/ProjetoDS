@@ -12,16 +12,16 @@
 	<feature automatic="unselected" name="SMS"/>
 	<feature automatic="selected" name="Calendario"/>
 	<feature name="PeriodoLuzesAutomaticas"/>
-	<feature name="PeriodoAlertaMovimento"/>
+	<feature manual="selected" name="PeriodoAlertaMovimento"/>
 	<feature name="PeriodoPortaAberta"/>
 	<feature name="TempoMaxPortaAberta"/>
-	<feature manual="selected" name="PedidoAjuda"/>
+	<feature name="PedidoAjuda"/>
 	<feature automatic="selected" name="Dispositivos"/>
 	<feature automatic="selected" name="Computador"/>
 	<feature name="Microfone"/>
 	<feature automatic="selected" name="Colunas"/>
-	<feature name="DetetorMovimento"/>
-	<feature automatic="selected" name="Botao"/>
+	<feature automatic="selected" name="DetetorMovimento"/>
+	<feature name="Botao"/>
 	<feature name="LampadaInteligente"/>
 	<feature name="CampainhaPorta"/>
 	<feature name="DetetorAberturaPorta"/>

@@ -15,12 +15,19 @@ import UpdateEvents.UpdateEventInteligentLamp;
 import UpdateEvents.UpdateEventMovementDetector;
 import UpdateEvents.UpdateEventOpenDetector;
 import i18n.I18N;
+import i18n.Messages;
 import sensores.BellDetector;
 import sensores.InteligentLamp;
+
+import static i18n.Messages.*;
+
+
+
 
 
 public class FornecedorServicos {
 	
+
 	boolean lampadaInteligente = false;
 	boolean campainhaInteligente = false;
 	static boolean userCego = false;
@@ -68,7 +75,7 @@ public class FornecedorServicos {
 		//Inicializar Besirk
         BezirkMiddleware.initialize();
         final Bezirk bezirk = BezirkMiddleware.registerZirk("Fornecedor Servicos Zirk");
-        System.err.println("Got Bezirk instance \n");
+        writeOrSpeak(I18N.getString(BEZIRK_INSTANCE));
    
         //Botao Inteligente
         final EventSet botaoEvent = new EventSet(UpdateEventButton.class);       
@@ -79,21 +86,22 @@ public class FornecedorServicos {
                 if (event instanceof Event) {
                     final UpdateEventButton btnUpdate = (UpdateEventButton) event;
                     
-                    System.err.println("\nReceived botao update: " + btnUpdate.toString());
+                    writeOrSpeak(I18N.getString(BOTAO_UPDATE) + btnUpdate.toString());
+                    
                                     
                     //do something in response to this event
                     if (btnUpdate.getActualState()) {
-                        System.out.println("Pedido de ajuda Requisitado");
                         
-                        writeOrSpeak("Asking for Help");
+                        writeOrSpeak(I18N.getString(PEDIDO_AJUDA));
                         
                         //Mensagem de para exterior
-                        MensagemExterior mensagem = new MensagemExterior("Pedido de ajuda Requisitado ", "913651651");
+                        MensagemExterior mensagem = new MensagemExterior(I18N.getString(PEDIDO_AJUDA), "913651651");
                 		mensagem.sendMessage();
                 		
                 		if(lampadaInteligente){
-                			  System.out.println("\nA acender luzez ...");
-                			InteligentLamp il = new InteligentLamp(); 
+                			  writeOrSpeak(I18N.getString(ACENDER_LUZ));
+                			  
+                			InteligentLamp il = new InteligentLamp();
                 			il.sendInteligentLampUpdate();
                 		}
                     }              
@@ -116,20 +124,21 @@ public class FornecedorServicos {
                                         
                     //do something in response to this event
                    if (movUpdate.getActualState()) {
-                        System.out.println("Movimento Detetado!");
+                        
+                        writeOrSpeak(I18N.getString(LIGAR_MOVIMENTO));
                         
                        if(now.isAfter(movUpdate.getInitialDateTime()) && now.isBefore(movUpdate.getEndDateTime())) {                   	
                     	    //Mensagem de para exterior
-                            MensagemExterior mensagem = new MensagemExterior("Foi Detetado Movimento ", "913651651");
+                            MensagemExterior mensagem = new MensagemExterior(I18N.getString(LIGAR_MOVIMENTO), "913651651");
                    			mensagem.sendMessage();
                        }
                               	
                 		if(lampadaInteligente && (now.isAfter(movUpdate.getInitialDateTimeLuzes()) && now.isBefore(movUpdate.getEndDateTimeLuzes()))){
-                				System.out.println("\nA acender luzes ...");
+                				System.out.println(I18N.getString(LIGAR_MOVIMENTO));
 	                			InteligentLamp il = new InteligentLamp(); 
 	                			il.sendInteligentLampUpdate();
                 		}else {
-                			System.out.println("Ainda nao esta na hora acender as luzes!");
+                			System.out.println(I18N.getString(LUZ_AVISO));
                 		}                		
                     }                      
                 }
@@ -148,16 +157,16 @@ public class FornecedorServicos {
             if (event instanceof Event) {
                 final UpdateEventInteligentLamp luzUpdate = (UpdateEventInteligentLamp) event;
                 
-                System.err.println("\nLuzes Ligadas " + luzUpdate.toString());
+                System.err.println(I18N.getString(LUZ_LIGADA) + luzUpdate.toString());
                                 
                 //do something in response to this event
                 if (luzUpdate.getActualState()) {
                 	                	                                                                     
                     //Mensagem de para exterior
-                    MensagemExterior mensagem = new MensagemExterior("As Luzes Ligadas ", "913651651");
+                    MensagemExterior mensagem = new MensagemExterior(I18N.getString(LUZ_LIGADA), "913651651");
             		mensagem.sendMessage();
                 }else {
-                	 System.out.println("Luzes Apagadas por Timeout!");
+                	 System.out.println(I18N.getString(LUZ_TIMEOUT));
                 }
             }
         }
@@ -176,24 +185,24 @@ public class FornecedorServicos {
                 final UpdateEventOpenDetector doorUpdate = (UpdateEventOpenDetector) event;
                 
                 LocalDateTime now = LocalDateTime.now();
-                System.err.println("\nPorta Aberta" + doorUpdate.toString());
+                System.err.println(I18N.getString(PORTA_ABERTA) + doorUpdate.toString());
                                 
                 //do something in response to this event
                 if (doorUpdate.getActualState()) {
-                    System.out.println("Porta Aberta!");
+                    System.out.println(I18N.getString(PORTA_ABERTA));
                     
             		if(campainhaInteligente && (now.isAfter(doorUpdate.getInitialDateTime()) && now.isBefore(doorUpdate.getEndDateTime()))){
             			
-        				System.out.println("\nA tocar campainha ...");
+        				System.out.println(I18N.getString(TOQUE_CAMPAINHA));
         				BellDetector Bell = new BellDetector(); 
         				Bell.sendBellDetectorUpdate();
         				
         				//Mensagem de para exterior
-                        MensagemExterior mensagem = new MensagemExterior("A porta foi Aberta ", "913651651");
+                        MensagemExterior mensagem = new MensagemExterior(I18N.getString(PORTA_ABRIU), "913651651");
                 		mensagem.sendMessage();
             			
 	        		}else {
-	        			System.out.println("Ainda nao esta na hora de tocar a campainha!");
+	        			System.out.println(I18N.getString(CAMPAINHA_HORA));
 	        		}                                       
                 }
             }
@@ -211,14 +220,14 @@ public class FornecedorServicos {
             if (event instanceof Event) {
                 final UpdateEventBellDetector bellUpdate = (UpdateEventBellDetector) event;
                 
-                System.err.println("\nCampainha tocou" + bellUpdate.toString());
+                System.err.println(I18N.getString(CAMPAINHA_TOQUE) + bellUpdate.toString());
                                 
                 //do something in response to this event
                 if (bellUpdate.getActualState()) {
-                    System.out.println("Campainha tocou!");
+                    System.out.println(I18N.getString(CAMPAINHA_TOQUE));
                     
                     //Mensagem de para exterior
-                    MensagemExterior mensagem = new MensagemExterior("A Campainha tocou ", "913651651");
+                    MensagemExterior mensagem = new MensagemExterior(I18N.getString(CAMPAINHA_TOQUE), "913651651");
             		mensagem.sendMessage();
                 }
             }
@@ -229,10 +238,6 @@ public class FornecedorServicos {
 	
 	public static void main(String[] args) {
 		new FornecedorServicos();
-		
-		if(userCego) {
-			System.out.println("USER É CEGO BAMOS DITAR AS CENAS");
-		}
 	}
 
 }
