@@ -40,6 +40,24 @@ public class UpdateEventInteligentLamp extends Event {
 		this.sensorName = sensorName;
 	}
 	
+	
+	
+	public LocalDateTime getInitialDateTime() {
+		return initialDateTime;
+	}
+
+	public void setInitialDateTime(LocalDateTime initialDateTime) {
+		this.initialDateTime = initialDateTime;
+	}
+
+	public LocalDateTime getEndDateTime() {
+		return endDateTime;
+	}
+
+	public void setEndDateTime(LocalDateTime endDateTime) {
+		this.endDateTime = endDateTime;
+	}
+
 	public String toString() {return String.format("name: " + sensorName +" , " + "actualState: "+actualState);}
 
 }

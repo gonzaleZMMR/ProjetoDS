@@ -1,3 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
@@ -15,10 +18,17 @@ import sensores.InteligentLamp;
 
 public class FornecedorServicos {
 	
-	boolean luzesAutomaticas;
+	boolean luzesAutomaticas = false;
+	boolean userCego = false;
+	
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH");  
 	
 	public void setLuzesAutomaticas() {
 		 luzesAutomaticas = true;
+	}
+	
+	public void setCego() {
+		userCego = true;
 	}
 
 	public FornecedorServicos() {
@@ -74,6 +84,12 @@ public class FornecedorServicos {
                         MensagemExterior mensagem = new MensagemExterior("Foi Detetado Movimento ", "913651651");
                 		mensagem.sendMessage();
                 		
+                		if(luzesAutomaticas) {
+                			System.out.println("A LIGAR LUZES AUTOMATICAS PORQUE FOI DETETADO MOVIMENTO");
+	                			InteligentLamp il = new InteligentLamp(); 
+	                			il.sendInteligentLampUpdate();
+                		}
+                		
                     }                      
                 }
             }
@@ -95,7 +111,20 @@ public class FornecedorServicos {
                                 
                 //do something in response to this event
                 if (luzUpdate.getActualState()) {
-                    System.out.println("Luzes Acessas!");
+                	
+                	 
+                     System.out.println("Luzes so devem acender entre:" + luzUpdate.getInitialDateTime() + "e" + luzUpdate.getInitialDateTime());
+                     
+                     LocalDateTime now = LocalDateTime.now();  
+                     //System.out.println(dtf.format(now));
+                     
+                	if(now.compareTo(luzUpdate.getInitialDateTime()) > 0 && now.compareTo(luzUpdate.getInitialDateTime()) < 0) {
+                		 System.out.println("Luzes Acessas!");
+                	}else {
+                		System.out.println("Ainda nao esta na hora!");
+                	}
+                   
+                    
                     
                     //Mensagem de para exterior
                     MensagemExterior mensagem = new MensagemExterior("As Luzes Ligadas ", "913651651");
@@ -160,11 +189,8 @@ public class FornecedorServicos {
     bezirk.subscribe(campainhaEvent); 
 }
 	
-	
-	
 	public static void main(String[] args) {
 		new FornecedorServicos();
-
 	}
 
 }
