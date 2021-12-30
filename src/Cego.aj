@@ -1,4 +1,7 @@
 
 public aspect Cego {
-	// TODO Auto-generated aspect
+	after(FornecedorServicos servicos): execution(FornecedorServicos+.new(..)) && this(servicos) {
+        System.out.println("Detatado como cego");
+        servicos.setCego();
+    }
 }

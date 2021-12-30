@@ -32,3 +32,35 @@
 /Messages_en_US.properties
 /Messages_pt_PT.properties
 /Portuguess.class
+
+/MensagemExterior$1.class
+/MensagemExterior.class
+/MensagemMain.class
+<<<<<<< HEAD
+=======
+/TipoMensagem.class
+/AirQualitySensorZirk$1.class
+/BellDetector.class
+/InteligentButton.class
+/InteligentLamp.class
+/Main.class
+/MovementDetector.class
+/OpenDetector.class
+/Sensor.class
+/Snippet.class
+/UpdateEvent.class
+>>>>>>> main
+/Action.class
+/Calendar.class
+/Menu.class
+/Option.class
+/sensores/
+/UpdateEvents/
+/FornecedorServicos.class
+/FornecedorServicos$1.class
+/FornecedorServicos$2.class
+/FornecedorServicos$3.class
+/FornecedorServicos$4.class
+/FornecedorServicos$5.class
+/calendar/
+/mensagens/

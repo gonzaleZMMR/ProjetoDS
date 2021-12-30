@@ -1,4 +1,9 @@
+import sensores.OpenDetector;
 
 public aspect DetetorAberturaPorta {
-	// TODO Auto-generated aspect
+	after() : execution(void FornecedorServicos.main(..)){
+        System.out.println("Detetor de movimentos por aspetos");
+        OpenDetector door = new OpenDetector();
+        door.sendOpenDetectorUpdate();
+    }
 }

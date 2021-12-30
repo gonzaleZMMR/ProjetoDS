@@ -1,6 +1,8 @@
+package calendar;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class CallendarEvent{
+public class CallendarEvent implements Serializable{
 	
 	private int id;
 	
@@ -14,7 +16,20 @@ public class CallendarEvent{
 	
 	private int timeBeforeAlert;
 	
+	private String phoneNumber;
+	
 	public CallendarEvent() {
+	}
+
+	public CallendarEvent(int id, String callendarMessage, LocalDateTime startDate, LocalDateTime endDate,
+			int repeatRate, int timeBeforeAlert) {
+		super();
+		this.id = id;
+		this.callendarMessage = callendarMessage;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.repeatRate = repeatRate;
+		this.timeBeforeAlert = timeBeforeAlert;
 	}
 
 	public CallendarEvent(String callendarMessage, LocalDateTime startDate, LocalDateTime endDate, int repeatRate,
@@ -58,8 +73,9 @@ public class CallendarEvent{
 		this.endDate = endDate;
 	}
 
+	//Repeat rate will be in seconds so it makes the tests easier
 	public int getRepeatRate() {
-		return repeatRate;
+		return repeatRate * 1000;
 	}
 
 	public void setRepeatRate(int repeatRate) {
@@ -72,6 +88,14 @@ public class CallendarEvent{
 
 	public void setTimeBeforeAlert(int timeBeforeAlert) {
 		this.timeBeforeAlert = timeBeforeAlert;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	@Override
