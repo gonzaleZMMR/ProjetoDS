@@ -1,16 +1,13 @@
 package calendar;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 
+@SuppressWarnings("serial")
 public class Calendar implements Serializable{
 	
 	//Adds a new event to the calendar and subsequently to the file
@@ -33,6 +30,7 @@ public class Calendar implements Serializable{
 		
 	}
 	
+	@SuppressWarnings("unchecked")
 	public ArrayList<CallendarEvent> loadToCalendar() {
 		
 		ArrayList<CallendarEvent> c = new ArrayList<>();
@@ -49,13 +47,7 @@ public class Calendar implements Serializable{
 		} catch (Exception e) {
 		}
 		
-		System.out.println("List of events:");
-		
-		for (CallendarEvent callendarEvent : c) {
-			System.out.println(callendarEvent);
-		}
 		return c;
-		
 	}
 	
 	public void removeFromCalendar(ArrayList<CallendarEvent> listOfEvents, CallendarEvent ce) throws Exception {
