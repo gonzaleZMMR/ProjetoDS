@@ -40,7 +40,7 @@ public class MensagemExterior {
 	}
 	
 	public void sendMessage() {
-		System.out.println("Mensagem enviada: " + conteudoMensagem + "\nPor: " +  tipoMensagem + "\nPara: "  + contactoDestino);
+		System.out.println("Mensagem enviada: " + conteudoMensagem + "\nMetodo de envio: " +  tipoMensagem + "\nContacto destino: "  + contactoDestino);
 		Toolkit.getDefaultToolkit().beep();
 	}
 	
