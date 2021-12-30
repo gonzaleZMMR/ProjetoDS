@@ -29,7 +29,7 @@ public class BellDetector extends Sensor {
 	
 	public static void main(String args[]) throws InterruptedException {
 
-		BellDetector BellDetectorSensorZirk = new BellDetector(); 
-		BellDetectorSensorZirk.sendBellDetectorUpdate();
+		BellDetector Bell = new BellDetector(); 
+		Bell.sendBellDetectorUpdate();
 	 }
 }

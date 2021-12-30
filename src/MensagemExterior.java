@@ -55,7 +55,7 @@ public class MensagemExterior {
           	
         	  sendMessage();
           }
-      }, 0, event.getRepeatRate());
-	  
+          
+      }, 0, event.getRepeatRate());	  
   }  
 }

@@ -1,4 +1,6 @@
 package sensores;
+import java.time.LocalDateTime;
+
 import com.bezirk.middleware.Bezirk;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 import UpdateEvents.UpdateEventOpenDetector;
@@ -8,6 +10,7 @@ public class OpenDetector extends Sensor{
 	private Bezirk bezirk;
 	
 	long startTime;
+	LocalDateTime initialDateTime, endDateTime;
 
 	public OpenDetector() {
 		super();
@@ -19,7 +22,11 @@ public class OpenDetector extends Sensor{
     	//produces some  values since this is a mock
         final Boolean newState = true;
         final String newName = "Open Detector";
-        final UpdateEventOpenDetector OpenDetectorUpdateEvent = new UpdateEventOpenDetector(newName,newState);
+               
+        initialDateTime = LocalDateTime.of(2021,12,30,10,0);
+		endDateTime = LocalDateTime.of(2021,12,30,11,0);
+       
+        final UpdateEventOpenDetector OpenDetectorUpdateEvent = new UpdateEventOpenDetector(newName,newState, initialDateTime, endDateTime);
         
         //sends the event
         bezirk.sendEvent(OpenDetectorUpdateEvent);
@@ -29,7 +36,7 @@ public class OpenDetector extends Sensor{
         	continue;
         }
         
-        System.err.println("Published Open Detector update: " + OpenDetectorUpdateEvent.toString());
+        System.err.println("\nO tempo maximo de porta aberta foi ultrupassado! Cuidado!");
     }
 	
 	public static void main(String args[]) throws InterruptedException {

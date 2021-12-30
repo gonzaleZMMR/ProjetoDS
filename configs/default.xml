@@ -8,13 +8,13 @@
 	<feature name="Cego"/>
 	<feature automatic="selected" name="Funcionalidades"/>
 	<feature automatic="selected" name="Mensagem"/>
-	<feature automatic="unselected" name="Whatsapp"/>
-	<feature manual="selected" name="SMS"/>
+	<feature manual="selected" name="Whatsapp"/>
+	<feature automatic="unselected" name="SMS"/>
 	<feature automatic="selected" name="Calendario"/>
 	<feature name="PeriodoLuzesAutomaticas"/>
 	<feature name="PeriodoAlertaMovimento"/>
 	<feature name="PeriodoPortaAberta"/>
-	<feature name="TempoMaxPortaAberta"/>
+	<feature manual="selected" name="TempoMaxPortaAberta"/>
 	<feature name="PedidoAjuda"/>
 	<feature automatic="selected" name="Dispositivos"/>
 	<feature automatic="selected" name="Computador"/>
@@ -24,5 +24,5 @@
 	<feature name="Botao"/>
 	<feature name="LampadaInteligente"/>
 	<feature name="CampainhaPorta"/>
-	<feature name="DetetorAberturaPorta"/>
+	<feature automatic="selected" name="DetetorAberturaPorta"/>
 </configuration>

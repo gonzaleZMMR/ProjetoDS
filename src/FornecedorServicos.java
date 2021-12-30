@@ -13,18 +13,24 @@ import UpdateEvents.UpdateEventInteligentLamp;
 import UpdateEvents.UpdateEventMovementDetector;
 import UpdateEvents.UpdateEventOpenDetector;
 import i18n.I18N;
+import sensores.BellDetector;
 import sensores.InteligentLamp;
 
 
 public class FornecedorServicos {
 	
-	boolean luzesAutomaticas = false;
+	boolean lampadaInteligente = false;
+	boolean campainhaInteligente = false;
 	static boolean userCego = false;
 	
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH");  
 	
-	public void setLuzesAutomaticas() {
-		 luzesAutomaticas = true;
+	public void setLampadaInteligente() {
+		 lampadaInteligente = true;
+	}
+	
+	public void setCampainhaPorta() {
+		campainhaInteligente = true;
 	}
 	
 	public void setCego() {
@@ -36,7 +42,7 @@ public class FornecedorServicos {
 		//Inicializar Besirk
         BezirkMiddleware.initialize();
         final Bezirk bezirk = BezirkMiddleware.registerZirk("Fornecedor Servicos Zirk");
-        System.err.println("Got Bezirk instance");
+        System.err.println("Got Bezirk instance \n");
    
         //Botao Inteligente
         final EventSet botaoEvent = new EventSet(UpdateEventButton.class);       
@@ -56,6 +62,12 @@ public class FornecedorServicos {
                         //Mensagem de para exterior
                         MensagemExterior mensagem = new MensagemExterior("Pedido de ajuda Requisitado ", "913651651");
                 		mensagem.sendMessage();
+                		
+                		if(lampadaInteligente){
+                			  System.out.println("\nA acender luzez ...");
+                			InteligentLamp il = new InteligentLamp(); 
+                			il.sendInteligentLampUpdate();
+                		}
                     }              
                 }
             }
@@ -75,7 +87,7 @@ public class FornecedorServicos {
                     LocalDateTime now = LocalDateTime.now();  
                                         
                     //do something in response to this event
-                    if (movUpdate.getActualState()) {
+                   if (movUpdate.getActualState()) {
                         System.out.println("Movimento Detetado!");
                         
                        if(now.isAfter(movUpdate.getInitialDateTime()) && now.isBefore(movUpdate.getEndDateTime())) {                   	
@@ -84,14 +96,13 @@ public class FornecedorServicos {
                    			mensagem.sendMessage();
                        }
                               	
-                		if(luzesAutomaticas && (now.isAfter(movUpdate.getInitialDateTimeLuzes()) && now.isBefore(movUpdate.getEndDateTimeLuzes()))){
-                				System.out.println("Aligaz luzes ...");
+                		if(lampadaInteligente && (now.isAfter(movUpdate.getInitialDateTimeLuzes()) && now.isBefore(movUpdate.getEndDateTimeLuzes()))){
+                				System.out.println("\nA acender luzes ...");
 	                			InteligentLamp il = new InteligentLamp(); 
 	                			il.sendInteligentLampUpdate();
                 		}else {
-                			System.out.println("Ainda nao esta na hora das luzes");
-                		}
-                		
+                			System.out.println("Ainda nao esta na hora acender as luzes!");
+                		}                		
                     }                      
                 }
             }
@@ -109,7 +120,7 @@ public class FornecedorServicos {
             if (event instanceof Event) {
                 final UpdateEventInteligentLamp luzUpdate = (UpdateEventInteligentLamp) event;
                 
-                System.err.println("\nLuzes Ligadas" + luzUpdate.toString());
+                System.err.println("\nLuzes Ligadas " + luzUpdate.toString());
                                 
                 //do something in response to this event
                 if (luzUpdate.getActualState()) {
@@ -136,15 +147,26 @@ public class FornecedorServicos {
             if (event instanceof Event) {
                 final UpdateEventOpenDetector doorUpdate = (UpdateEventOpenDetector) event;
                 
+                LocalDateTime now = LocalDateTime.now();
                 System.err.println("\nPorta Aberta" + doorUpdate.toString());
                                 
                 //do something in response to this event
                 if (doorUpdate.getActualState()) {
                     System.out.println("Porta Aberta!");
                     
-                    //Mensagem de para exterior
-                    MensagemExterior mensagem = new MensagemExterior("A porta foi Aberta ", "913651651");
-            		mensagem.sendMessage();
+            		if(campainhaInteligente && (now.isAfter(doorUpdate.getInitialDateTime()) && now.isBefore(doorUpdate.getEndDateTime()))){
+            			
+        				System.out.println("\nA tocar campainha ...");
+        				BellDetector Bell = new BellDetector(); 
+        				Bell.sendBellDetectorUpdate();
+        				
+        				//Mensagem de para exterior
+                        MensagemExterior mensagem = new MensagemExterior("A porta foi Aberta ", "913651651");
+                		mensagem.sendMessage();
+            			
+	        		}else {
+	        			System.out.println("Ainda nao esta na hora de tocar a campainha!");
+	        		}                                       
                 }
             }
         }
