@@ -30,7 +30,7 @@ public class MovementDetector extends Sensor {
 		
 		//horario de acender as luzes
 		initialDateTimeLuzes = LocalDateTime.of(2021,12,30,18,0);
-		endDateTimeLuzes = LocalDateTime.of(2021,12,30,22,0);
+		endDateTimeLuzes = LocalDateTime.of(2021,12,30,23,50);
 		
         final UpdateEventMovementDetector MovementDetectorUpdateEvent = new UpdateEventMovementDetector(newName,newState,initialDateTime,endDateTime,initialDateTimeLuzes,endDateTimeLuzes);
         

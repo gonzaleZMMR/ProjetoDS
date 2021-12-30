@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="DetetorMovimento.aj|Ingles.aj|CampainhaPorta.aj|LampadaInteligente.aj|Whatsapp.aj|PeriodoLuzesAutomaticas.aj|PeriodoAlertaMovimento.aj|Microfone.aj|PeriodoPortaAberta.aj|Cego.aj" kind="src" path="src"/>
+	<classpathentry excluding="DetetorAberturaPorta.aj|DetetorMovimento.aj|Portugues.aj|CampainhaPorta.aj|LampadaInteligente.aj|TempoMaxPortaAberta.aj|PeriodoLuzesAutomaticas.aj|PeriodoAlertaMovimento.aj|Microfone.aj|PeriodoPortaAberta.aj|Cego.aj|SMS.aj" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.ajdt.core.ASPECTJRT_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/annotations-12.0.jar"/>
 	<classpathentry kind="lib" path="lib/bcprov-jdk15on-1.49.jar"/>

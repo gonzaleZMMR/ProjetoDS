@@ -23,7 +23,7 @@ public class InteligentLamp extends Sensor {
         final String newName = "Inteligent Lamp";
         
         LocalDateTime initialDateTime = LocalDateTime.of(2021,12,29,18,0);
-		LocalDateTime endDateTime = LocalDateTime.of(2021,12,29,19,0);
+		LocalDateTime endDateTime = LocalDateTime.of(2021,12,29,23,50);
        
         
         UpdateEventInteligentLamp InteligentLampUpdateEvent = new UpdateEventInteligentLamp(newName,newState,initialDateTime,endDateTime);

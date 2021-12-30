@@ -13,16 +13,16 @@
 	<feature automatic="selected" name="Calendario"/>
 	<feature name="PeriodoLuzesAutomaticas"/>
 	<feature name="PeriodoAlertaMovimento"/>
-	<feature manual="selected" name="PeriodoPortaAberta"/>
-	<feature name="TempoMaxPortaAberta"/>
-	<feature manual="selected" name="PedidoAjuda"/>
+	<feature name="PeriodoPortaAberta"/>
+	<feature manual="selected" name="TempoMaxPortaAberta"/>
+	<feature name="PedidoAjuda"/>
 	<feature automatic="selected" name="Dispositivos"/>
 	<feature automatic="selected" name="Computador"/>
 	<feature name="Microfone"/>
 	<feature automatic="selected" name="Colunas"/>
 	<feature name="DetetorMovimento"/>
-	<feature automatic="selected" name="Botao"/>
+	<feature name="Botao"/>
 	<feature name="LampadaInteligente"/>
-	<feature automatic="selected" name="CampainhaPorta"/>
+	<feature name="CampainhaPorta"/>
 	<feature automatic="selected" name="DetetorAberturaPorta"/>
 </configuration>

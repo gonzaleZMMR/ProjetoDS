@@ -21,10 +21,6 @@ import sensores.InteligentLamp;
 
 import static i18n.Messages.*;
 
-
-
-
-
 public class FornecedorServicos {
 	
 
@@ -50,6 +46,7 @@ public class FornecedorServicos {
 		if(userCego == false) {
 			System.out.println(string);
 		}else {
+			System.out.println(string);
 			//vai falar
 			Voice voice;//Creating object of Voice class
 			voice = VoiceManager.getInstance().getVoice("kevin");//Getting voice
@@ -99,7 +96,7 @@ public class FornecedorServicos {
                 		mensagem.sendMessage();
                 		
                 		if(lampadaInteligente){
-                			  writeOrSpeak(I18N.getString(ACENDER_LUZ));
+                			writeOrSpeak(I18N.getString(ACENDER_LUZ));
                 			  
                 			InteligentLamp il = new InteligentLamp();
                 			il.sendInteligentLampUpdate();
@@ -134,11 +131,11 @@ public class FornecedorServicos {
                        }
                               	
                 		if(lampadaInteligente && (now.isAfter(movUpdate.getInitialDateTimeLuzes()) && now.isBefore(movUpdate.getEndDateTimeLuzes()))){
-                				System.out.println(I18N.getString(LIGAR_MOVIMENTO));
+                				 writeOrSpeak(I18N.getString(LIGAR_MOVIMENTO));
 	                			InteligentLamp il = new InteligentLamp(); 
 	                			il.sendInteligentLampUpdate();
                 		}else {
-                			System.out.println(I18N.getString(LUZ_AVISO));
+                			 writeOrSpeak(I18N.getString(LUZ_AVISO));
                 		}                		
                     }                      
                 }
@@ -156,8 +153,8 @@ public class FornecedorServicos {
             //Check if this event is of interest
             if (event instanceof Event) {
                 final UpdateEventInteligentLamp luzUpdate = (UpdateEventInteligentLamp) event;
-                
-                System.err.println(I18N.getString(LUZ_LIGADA) + luzUpdate.toString());
+                                
+                writeOrSpeak(I18N.getString(LUZ_LIGADA) + luzUpdate.toString());
                                 
                 //do something in response to this event
                 if (luzUpdate.getActualState()) {
@@ -166,7 +163,7 @@ public class FornecedorServicos {
                     MensagemExterior mensagem = new MensagemExterior(I18N.getString(LUZ_LIGADA), "913651651");
             		mensagem.sendMessage();
                 }else {
-                	 System.out.println(I18N.getString(LUZ_TIMEOUT));
+                	 writeOrSpeak(I18N.getString(LUZ_TIMEOUT));
                 }
             }
         }
@@ -184,16 +181,16 @@ public class FornecedorServicos {
             if (event instanceof Event) {
                 final UpdateEventOpenDetector doorUpdate = (UpdateEventOpenDetector) event;
                 
-                LocalDateTime now = LocalDateTime.now();
-                System.err.println(I18N.getString(PORTA_ABERTA) + doorUpdate.toString());
+                LocalDateTime now = LocalDateTime.now();               
+                writeOrSpeak(I18N.getString(PORTA_ABERTA) + doorUpdate.toString());
                                 
                 //do something in response to this event
                 if (doorUpdate.getActualState()) {
-                    System.out.println(I18N.getString(PORTA_ABERTA));
+                    writeOrSpeak(I18N.getString(PORTA_ABERTA));
                     
             		if(campainhaInteligente && (now.isAfter(doorUpdate.getInitialDateTime()) && now.isBefore(doorUpdate.getEndDateTime()))){
             			
-        				System.out.println(I18N.getString(TOQUE_CAMPAINHA));
+        				writeOrSpeak(I18N.getString(TOQUE_CAMPAINHA));
         				BellDetector Bell = new BellDetector(); 
         				Bell.sendBellDetectorUpdate();
         				
@@ -201,8 +198,6 @@ public class FornecedorServicos {
                         MensagemExterior mensagem = new MensagemExterior(I18N.getString(PORTA_ABRIU), "913651651");
                 		mensagem.sendMessage();
             			
-	        		}else {
-	        			System.out.println(I18N.getString(CAMPAINHA_HORA));
 	        		}                                       
                 }
             }
@@ -220,11 +215,11 @@ public class FornecedorServicos {
             if (event instanceof Event) {
                 final UpdateEventBellDetector bellUpdate = (UpdateEventBellDetector) event;
                 
-                System.err.println(I18N.getString(CAMPAINHA_TOQUE) + bellUpdate.toString());
+            	writeOrSpeak(I18N.getString(CAMPAINHA_TOQUE) + bellUpdate.toString());
                                 
                 //do something in response to this event
                 if (bellUpdate.getActualState()) {
-                    System.out.println(I18N.getString(CAMPAINHA_TOQUE));
+                    writeOrSpeak(I18N.getString(CAMPAINHA_TOQUE));
                     
                     //Mensagem de para exterior
                     MensagemExterior mensagem = new MensagemExterior(I18N.getString(CAMPAINHA_TOQUE), "913651651");

@@ -24,7 +24,7 @@ public class OpenDetector extends Sensor{
         final String newName = "Open Detector";
                
         initialDateTime = LocalDateTime.of(2021,12,30,10,0);
-		endDateTime = LocalDateTime.of(2021,12,30,11,0);
+		endDateTime = LocalDateTime.of(2021,12,30,23,45);
        
         final UpdateEventOpenDetector OpenDetectorUpdateEvent = new UpdateEventOpenDetector(newName,newState, initialDateTime, endDateTime);
         

@@ -11,18 +11,18 @@
 	<feature automatic="unselected" name="Whatsapp"/>
 	<feature manual="selected" name="SMS"/>
 	<feature automatic="selected" name="Calendario"/>
-	<feature name="PeriodoLuzesAutomaticas"/>
+	<feature manual="selected" name="PeriodoLuzesAutomaticas"/>
 	<feature name="PeriodoAlertaMovimento"/>
 	<feature name="PeriodoPortaAberta"/>
-	<feature manual="selected" name="TempoMaxPortaAberta"/>
-	<feature manual="selected" name="PedidoAjuda"/>
+	<feature name="TempoMaxPortaAberta"/>
+	<feature name="PedidoAjuda"/>
 	<feature automatic="selected" name="Dispositivos"/>
 	<feature automatic="selected" name="Computador"/>
 	<feature name="Microfone"/>
 	<feature automatic="selected" name="Colunas"/>
-	<feature name="DetetorMovimento"/>
-	<feature automatic="selected" name="Botao"/>
-	<feature name="LampadaInteligente"/>
+	<feature automatic="selected" name="DetetorMovimento"/>
+	<feature name="Botao"/>
+	<feature automatic="selected" name="LampadaInteligente"/>
 	<feature name="CampainhaPorta"/>
-	<feature automatic="selected" name="DetetorAberturaPorta"/>
+	<feature name="DetetorAberturaPorta"/>
 </configuration>
