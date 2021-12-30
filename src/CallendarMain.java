@@ -1,6 +1,9 @@
 import java.io.IOException;
 import java.util.Scanner;
 
+import i18n.I18N;
+import i18n.Messages;
+
 public class CallendarMain{
 
 	public static void main(String[] args) throws IOException {
@@ -10,7 +13,7 @@ public class CallendarMain{
 
 		Menu menu = new Menu();
 		Option exit = new Option("exit");
-		menu.addMenuItem(exit, new Action("Sair"));
+		menu.addMenuItem(exit, new Action(I18N.getString(Messages.INSERT_TITLE)));
 		int optionNum;
 		Option option;
 		do {

@@ -13,7 +13,7 @@
 	<feature automatic="selected" name="Calendario"/>
 	<feature name="PeriodoLuzesAutomaticas"/>
 	<feature name="PeriodoAlertaMovimento"/>
-	<feature name="PeriodoPortaAberta"/>
+	<feature manual="selected" name="PeriodoPortaAberta"/>
 	<feature name="TempoMaxPortaAberta"/>
 	<feature name="PedidoAjuda"/>
 	<feature automatic="selected" name="Dispositivos"/>
@@ -22,7 +22,7 @@
 	<feature automatic="selected" name="Colunas"/>
 	<feature name="DetetorMovimento"/>
 	<feature name="Botao"/>
-	<feature manual="selected" name="LampadaInteligente"/>
-	<feature name="CampainhaPorta"/>
-	<feature manual="selected" name="DetetorAberturaPorta"/>
+	<feature name="LampadaInteligente"/>
+	<feature automatic="selected" name="CampainhaPorta"/>
+	<feature automatic="selected" name="DetetorAberturaPorta"/>
 </configuration>

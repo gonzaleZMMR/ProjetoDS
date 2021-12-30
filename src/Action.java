@@ -34,8 +34,12 @@ public class Action {
 		ArrayList<CallendarEvent> listevents = new ArrayList<CallendarEvent>();
 		listevents = new ArrayList<CallendarEvent>();
 		listevents = c.loadToCalendar();
+		
+		for (CallendarEvent callendarEvent : listevents) {
+			System.out.println(callendarEvent);
+		}
 	}
-	
+
 	public void addData() {
 		//Create an arraylist of calendar events and create a calendar object
 		Calendar c = new Calendar();
@@ -49,33 +53,33 @@ public class Action {
 		//Defines the callendar start message
 		ce.setCallendarMessage(eventTitle);
 		//printing data
-		System.out.println("Insira o dia do inicio do evento:");
+		System.out.println(Messages.INSERT_DIA_INICIO);
 		int day = bucky.nextInt();
-		System.out.println("Insira o mês do inicio do evento:");
+		System.out.println(Messages.INSERT_MES_INICIO);
 		int month = bucky.nextInt();
-		System.out.println("Insira o ano do inicio do evento:");
+		System.out.println(Messages.INSERT_ANO_INICIO);
 		int year = bucky.nextInt();
-		System.out.println("Insira a hora de inicio do evento:");
+		System.out.println(Messages.INSERT_HORA_INICIO);
 		int hour = bucky.nextInt();
 		LocalDateTime dateTime = LocalDateTime.of(2021, 12, 30, 18, 0, 0, 0);
 		ce.setStartDate(dateTime);
-		System.out.println("Insira o dia do fim do evento:");
+		System.out.println(Messages.INSERT_DIA_FIM);
 		day = bucky.nextInt();
-		System.out.println("Insira o mês do fim do evento:");
+		System.out.println(Messages.INSERT_MES_FIM);
 		month = bucky.nextInt();
-		System.out.println("Insira o ano do fim do evento:");
+		System.out.println(Messages.INSERT_ANO_FIM);
 		year = bucky.nextInt();
-		System.out.println("Insira a hora de inicio do evento:");
+		System.out.println(Messages.INSERT_HORA_FIM);
 		hour = bucky.nextInt();
 		dateTime = LocalDateTime.of(2021, 12, 30, 18, 0, 0, 0);
 		ce.setEndDate(dateTime);
-		System.out.println("Defina a periodicidade do evento:");
+		System.out.println(Messages.PERIODICIDADE);
 		int periodicity = bucky.nextInt();
 		ce.setRepeatRate(periodicity);
-		System.out.println("tempo antes:");
+		System.out.println(Messages.TEMPO_ANTES);
 		int timeBeforeAlert = bucky.nextInt();
 		ce.setTimeBeforeAlert(timeBeforeAlert);
-		System.out.println("numero de telefone:");
+		System.out.println(Messages.TELEFONE);
 		String phonenumber = bucky.next();
 		ce.setPhoneNumber(phonenumber);
 		try {

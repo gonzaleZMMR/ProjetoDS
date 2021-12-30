@@ -3,26 +3,26 @@
 	<feature automatic="selected" name="ProductLine"/>
 	<feature automatic="selected" name="Utilizadores"/>
 	<feature automatic="selected" name="Linguagem"/>
-	<feature automatic="unselected" name="Portugues"/>
-	<feature manual="selected" name="Ingles"/>
+	<feature manual="selected" name="Portugues"/>
+	<feature automatic="unselected" name="Ingles"/>
 	<feature name="Cego"/>
 	<feature automatic="selected" name="Funcionalidades"/>
 	<feature automatic="selected" name="Mensagem"/>
-	<feature manual="selected" name="Whatsapp"/>
-	<feature automatic="unselected" name="SMS"/>
+	<feature automatic="unselected" name="Whatsapp"/>
+	<feature manual="selected" name="SMS"/>
 	<feature automatic="selected" name="Calendario"/>
 	<feature name="PeriodoLuzesAutomaticas"/>
-	<feature manual="selected" name="PeriodoAlertaMovimento"/>
-	<feature name="PeriodoPortaAberta"/>
+	<feature name="PeriodoAlertaMovimento"/>
+	<feature manual="selected" name="PeriodoPortaAberta"/>
 	<feature name="TempoMaxPortaAberta"/>
-	<feature name="PedidoAjuda"/>
+	<feature manual="selected" name="PedidoAjuda"/>
 	<feature automatic="selected" name="Dispositivos"/>
 	<feature automatic="selected" name="Computador"/>
 	<feature name="Microfone"/>
 	<feature automatic="selected" name="Colunas"/>
-	<feature automatic="selected" name="DetetorMovimento"/>
-	<feature name="Botao"/>
+	<feature name="DetetorMovimento"/>
+	<feature automatic="selected" name="Botao"/>
 	<feature name="LampadaInteligente"/>
-	<feature name="CampainhaPorta"/>
-	<feature name="DetetorAberturaPorta"/>
+	<feature automatic="selected" name="CampainhaPorta"/>
+	<feature automatic="selected" name="DetetorAberturaPorta"/>
 </configuration>
