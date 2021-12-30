@@ -5,7 +5,7 @@
 	<feature automatic="selected" name="Linguagem"/>
 	<feature manual="selected" name="Portugues"/>
 	<feature automatic="unselected" name="Ingles"/>
-	<feature name="Cego"/>
+	<feature manual="selected" name="Cego"/>
 	<feature automatic="selected" name="Funcionalidades"/>
 	<feature automatic="selected" name="Mensagem"/>
 	<feature automatic="unselected" name="Whatsapp"/>
@@ -18,7 +18,7 @@
 	<feature name="PedidoAjuda"/>
 	<feature automatic="selected" name="Dispositivos"/>
 	<feature automatic="selected" name="Computador"/>
-	<feature name="Microfone"/>
+	<feature automatic="selected" name="Microfone"/>
 	<feature automatic="selected" name="Colunas"/>
 	<feature automatic="selected" name="DetetorMovimento"/>
 	<feature name="Botao"/>

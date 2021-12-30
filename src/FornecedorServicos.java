@@ -19,7 +19,7 @@ import sensores.InteligentLamp;
 public class FornecedorServicos {
 	
 	boolean luzesAutomaticas = false;
-	boolean userCego = false;
+	static boolean userCego = false;
 	
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH");  
 	
@@ -113,18 +113,7 @@ public class FornecedorServicos {
                 if (luzUpdate.getActualState()) {
                 	
                 	 
-                     System.out.println("Luzes so devem acender entre:" + luzUpdate.getInitialDateTime() + "e" + luzUpdate.getInitialDateTime());
-                     
-                     LocalDateTime now = LocalDateTime.now();  
-                     //System.out.println(dtf.format(now));
-                     
-                	if(now.compareTo(luzUpdate.getInitialDateTime()) > 0 && now.compareTo(luzUpdate.getInitialDateTime()) < 0) {
-                		 System.out.println("Luzes Acessas!");
-                	}else {
-                		System.out.println("Ainda nao esta na hora!");
-                	}
-                   
-                    
+                     System.out.println("Luzes so devem acender entre:" + luzUpdate.getInitialDateTime() + "e" + luzUpdate.getInitialDateTime());                                
                     
                     //Mensagem de para exterior
                     MensagemExterior mensagem = new MensagemExterior("As Luzes Ligadas ", "913651651");
@@ -191,6 +180,10 @@ public class FornecedorServicos {
 	
 	public static void main(String[] args) {
 		new FornecedorServicos();
+		
+		if(userCego) {
+			System.out.println("USER É CEGO BAMOS DITAR AS CENAS");
+		}
 	}
 
 }
