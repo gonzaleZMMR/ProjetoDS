@@ -71,19 +71,22 @@ public class FornecedorServicos {
                 //Check if this event is of interest
                 if (event instanceof Event) {
                     final UpdateEventMovementDetector movUpdate = (UpdateEventMovementDetector) event;
-                    
-                    System.err.println("\nMovimento Detetado " + movUpdate.toString());
-                    
-                    /*Fazer as coisas do tempo */
-                                    
+                                      
+                    LocalDateTime now = LocalDateTime.now();  
+                                        
                     //do something in response to this event
                     if (movUpdate.getActualState()) {
                         System.out.println("Movimento Detetado!");
+                        System.out.println(movUpdate.getInitialDateTime() +" "+ ""+ movUpdate.getEndDateTime());
                         
-                        //Mensagem de para exterior
-                        MensagemExterior mensagem = new MensagemExterior("Foi Detetado Movimento ", "913651651");
-                		mensagem.sendMessage();
-                		
+                       if(now.isAfter(movUpdate.getInitialDateTime()) && now.isBefore(movUpdate.getEndDateTime())) {                   	
+                    	    //Mensagem de para exterior
+                            MensagemExterior mensagem = new MensagemExterior("Foi Detetado Movimento ", "913651651");
+                   			mensagem.sendMessage();
+                       }else {
+                    		System.out.println("Nao esta na hora");
+                       }
+                              		
                 		if(luzesAutomaticas) {
                 			System.out.println("A LIGAR LUZES AUTOMATICAS PORQUE FOI DETETADO MOVIMENTO");
 	                			InteligentLamp il = new InteligentLamp(); 
@@ -111,10 +114,7 @@ public class FornecedorServicos {
                                 
                 //do something in response to this event
                 if (luzUpdate.getActualState()) {
-                	
-                	 
-                     System.out.println("Luzes so devem acender entre:" + luzUpdate.getInitialDateTime() + "e" + luzUpdate.getInitialDateTime());                                
-                    
+                	                	                                                                     
                     //Mensagem de para exterior
                     MensagemExterior mensagem = new MensagemExterior("As Luzes Ligadas ", "913651651");
             		mensagem.sendMessage();

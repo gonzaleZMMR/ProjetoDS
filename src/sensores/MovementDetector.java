@@ -23,10 +23,12 @@ public class MovementDetector extends Sensor {
     	//produces some  values since this is a mock
         final Boolean newState = true;
         final String newName = "Movement Detector";
-        final UpdateEventMovementDetector MovementDetectorUpdateEvent = new UpdateEventMovementDetector(newName,newState);
-        
         initialDateTime = LocalDateTime.of(2021,12,29,18,0);
 		endDateTime = LocalDateTime.of(2021,12,29,19,0);
+		
+        final UpdateEventMovementDetector MovementDetectorUpdateEvent = new UpdateEventMovementDetector(newName,newState,initialDateTime,endDateTime);
+        
+       
         now = LocalDateTime.now();
 
         //sends the event
