@@ -77,20 +77,19 @@ public class FornecedorServicos {
                     //do something in response to this event
                     if (movUpdate.getActualState()) {
                         System.out.println("Movimento Detetado!");
-                        System.out.println(movUpdate.getInitialDateTime() +" "+ ""+ movUpdate.getEndDateTime());
                         
                        if(now.isAfter(movUpdate.getInitialDateTime()) && now.isBefore(movUpdate.getEndDateTime())) {                   	
                     	    //Mensagem de para exterior
                             MensagemExterior mensagem = new MensagemExterior("Foi Detetado Movimento ", "913651651");
                    			mensagem.sendMessage();
-                       }else {
-                    		System.out.println("Nao esta na hora");
                        }
-                              		
-                		if(luzesAutomaticas) {
-                			System.out.println("A LIGAR LUZES AUTOMATICAS PORQUE FOI DETETADO MOVIMENTO");
+                              	
+                		if(luzesAutomaticas && (now.isAfter(movUpdate.getInitialDateTimeLuzes()) && now.isBefore(movUpdate.getEndDateTimeLuzes()))){
+                				System.out.println("Aligaz luzes ...");
 	                			InteligentLamp il = new InteligentLamp(); 
 	                			il.sendInteligentLampUpdate();
+                		}else {
+                			System.out.println("Ainda nao esta na hora das luzes");
                 		}
                 		
                     }                      

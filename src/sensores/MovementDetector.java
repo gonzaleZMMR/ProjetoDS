@@ -11,7 +11,7 @@ import UpdateEvents.UpdateEventMovementDetector;
 public class MovementDetector extends Sensor {
 	
 	private Bezirk bezirk;
-	LocalDateTime initialDateTime, endDateTime,now;
+	LocalDateTime initialDateTime, endDateTime,initialDateTimeLuzes, endDateTimeLuzes;
 	
 	public MovementDetector() {
 		super();
@@ -23,14 +23,17 @@ public class MovementDetector extends Sensor {
     	//produces some  values since this is a mock
         final Boolean newState = true;
         final String newName = "Movement Detector";
-        initialDateTime = LocalDateTime.of(2021,12,29,18,0);
-		endDateTime = LocalDateTime.of(2021,12,29,19,0);
-		
-        final UpdateEventMovementDetector MovementDetectorUpdateEvent = new UpdateEventMovementDetector(newName,newState,initialDateTime,endDateTime);
         
-       
-        now = LocalDateTime.now();
-
+        //horario de envio de mensagem
+        initialDateTime = LocalDateTime.of(2021,12,30,10,0);
+		endDateTime = LocalDateTime.of(2021,12,30,20,0);
+		
+		//horario de acender as luzes
+		initialDateTimeLuzes = LocalDateTime.of(2021,12,30,18,0);
+		endDateTimeLuzes = LocalDateTime.of(2021,12,30,22,0);
+		
+        final UpdateEventMovementDetector MovementDetectorUpdateEvent = new UpdateEventMovementDetector(newName,newState,initialDateTime,endDateTime,initialDateTimeLuzes,endDateTimeLuzes);
+        
         //sends the event
         bezirk.sendEvent(MovementDetectorUpdateEvent);
         
