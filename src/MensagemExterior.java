@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import calendar.CallendarEvent;
+
 
 
 public class MensagemExterior {

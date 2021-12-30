@@ -2,6 +2,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import calendar.Calendar;
+import calendar.CallendarEvent;
 import i18n.I18N;
 import i18n.Messages;
 
