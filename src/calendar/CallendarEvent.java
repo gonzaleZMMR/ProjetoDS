@@ -73,8 +73,9 @@ public class CallendarEvent implements Serializable{
 		this.endDate = endDate;
 	}
 
+	//Repeat rate will be in seconds so it makes the tests easier
 	public int getRepeatRate() {
-		return repeatRate;
+		return repeatRate * 1000;
 	}
 
 	public void setRepeatRate(int repeatRate) {
