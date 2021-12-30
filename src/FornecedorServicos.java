@@ -6,6 +6,8 @@ import com.bezirk.middleware.addressing.ZirkEndPoint;
 import com.bezirk.middleware.java.proxy.BezirkMiddleware;
 import com.bezirk.middleware.messages.Event;
 import com.bezirk.middleware.messages.EventSet;
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 
 import UpdateEvents.UpdateEventBellDetector;
 import UpdateEvents.UpdateEventButton;
@@ -36,6 +38,30 @@ public class FornecedorServicos {
 	public void setCego() {
 		userCego = true;
 	}
+	
+	public static void writeOrSpeak(String string) {
+		if(userCego == false) {
+			System.out.println(string);
+		}else {
+			//vai falar
+			Voice voice;//Creating object of Voice class
+			voice = VoiceManager.getInstance().getVoice("kevin");//Getting voice
+			
+			if (voice != null) {
+	            voice.allocate();//Allocating Voice
+	        }try{
+			
+			voice.setRate(150);//Setting the rate of the voice
+            voice.setPitch(180);//Setting the Pitch of the voice
+            voice.setVolume(4);//Setting the volume of the voice
+	        	        
+	        voice.speak(string);//Calling speak() method     
+	        }catch(Exception e)
+	        {
+	            e.printStackTrace();
+	        }
+		 }
+	}
 
 	public FornecedorServicos() {
 		
@@ -58,6 +84,8 @@ public class FornecedorServicos {
                     //do something in response to this event
                     if (btnUpdate.getActualState()) {
                         System.out.println("Pedido de ajuda Requisitado");
+                        
+                        writeOrSpeak("Asking for Help");
                         
                         //Mensagem de para exterior
                         MensagemExterior mensagem = new MensagemExterior("Pedido de ajuda Requisitado ", "913651651");
